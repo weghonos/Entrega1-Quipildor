@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Entrega1Quipildor.urls'
+ROOT_URLCONF = 'Entrega1-Quipildor.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Entrega1Quipildor.wsgi.application'
+WSGI_APPLICATION = 'Entrega1-Quipildor.wsgi.application'
 
 
 # Database

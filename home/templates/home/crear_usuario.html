@@ -1,0 +1,22 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Crear Usuarios</title>
+{% endblock titulo_pagina %}
+
+
+{% block cuerpo %}
+
+<form action={% url 'crear_usuario' %} method="POST">
+    {% csrf_token %}
+    <p>Nombre: <input type="text" name="nombre" placeholder="Nombre"> </p>
+
+    <p>Apellido: <input type="text" name="apellido" placeholder="Apellido"></p>
+
+    <p>Edad:<input type="text" name="edad" placeholder="Edad"></p>
+
+    <p>Fecha de nacimiento: <input type="text" placeholder="MM/DD/AAAA"></p>
+
+    <button>Crear</button>
+</form>
+{% endblock cuerpo %}
