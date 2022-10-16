@@ -6,17 +6,15 @@
 
 
 {% block cuerpo %}
-
+<br>
 <form action={% url 'crear_usuario' %} method="POST">
     {% csrf_token %}
-    <p>Nombre: <input type="text" name="nombre" placeholder="Nombre"> </p>
-
-    <p>Apellido: <input type="text" name="apellido" placeholder="Apellido"></p>
-
-    <p>Edad:<input type="text" name="edad" placeholder="Edad"></p>
-
-    <p>Fecha de nacimiento: <input type="text" placeholder="MM/DD/AAAA"></p>
-
-    <button>Crear</button>
+    <table align="center">
+    {{ formulario }}
+    </table>
+<br>
+    <center><button>Crear</button></center>
+    <br><br><br>
+    * Formato de fecha: MM/DD/AAAA
 </form>
 {% endblock cuerpo %}

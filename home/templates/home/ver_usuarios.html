@@ -1,0 +1,29 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Ver Usuarios</title>
+{% endblock titulo_pagina %}
+
+{% block cuerpo %}
+<form action={% url 'ver_usuarios' %} method="GET">
+    <br>
+    <table align="center">
+    {{ formulario }}
+    </table>
+    <center><button>Buscar</button></center>
+</form>
+<br><br>
+
+
+<p>Lista de usuarios:</p>
+{% if usuarios %}
+    {% for usuario in usuarios%}
+    <li>{{usuario.nombre}} {{usuario.apellido}},{{usuario.edad}} - {{usuario.fecha_nacimiento}}</li>
+    {% endfor %}
+{%else%}
+
+No se encontraron resultados de la busqueda!
+
+{% endif %}
+
+{% endblock cuerpo %}
