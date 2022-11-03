@@ -5,9 +5,6 @@ from home.forms import BusquedaFormulario, UsuarioFormulario
 
 from home.models import Usuario
 
-def saludo(request):
-    fecha = datetime.now()
-    return HttpResponse(f"hola, hoy es: {fecha}")
 
 def index(request):
     return render(request, 'home/index.html')
@@ -24,7 +21,9 @@ def crear_usuario(request):
             nombre = data['nombre']
             apellido = data['apellido']
             edad = data['edad']
-            fecha_nacimiento = data.get("fecha_nacimiento", datetime.now())
+            fecha_nacimiento = data.get("fecha_nacimiento")
+            if not fecha_nacimiento:
+                fecha_nacimiento = datetime.now()
 
             persona = Usuario(nombre=nombre, apellido=apellido, edad=edad, fecha_nacimiento=fecha_nacimiento)
             persona.save()
