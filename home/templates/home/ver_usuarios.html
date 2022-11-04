@@ -16,10 +16,11 @@
 
 
 <p>Lista de usuarios:</p>
-{% if usuarios %}
-    {% for usuario in usuarios%}
+{% if object_list %}
+    {% for usuario in object_list%}
     <li>{{usuario}}
         <a class="navbar-brand" href={% url 'editar_usuario' usuario.id %}>Editar</a>
+        <a class="navbar-brand" href={% url 'eliminar_usuario' usuario.id %}>Eliminar</a>
     </li>
     {% endfor %}
 {%else%}

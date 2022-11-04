@@ -10,7 +10,7 @@
 <form action={% url 'crear_usuario' %} method="POST">
     {% csrf_token %}
     <table align="center">
-    {{ formulario }}
+    {{ form }}
     </table>
 <br>
     <center><button>Crear</button></center>

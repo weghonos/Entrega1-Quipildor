@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from home.forms import BusquedaFormulario, UsuarioFormulario
-
 from home.models import Usuario
-
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView
 
 def index(request):
     return render(request, 'home/index.html')
@@ -27,7 +27,7 @@ def crear_usuario(request):
             return redirect('ver_usuarios')
 
         else:
-            return render(request, 'home/crear_usuario.html', {"formulario": formulario})
+            return render(request, 'home/editar_usuario.html', {"formulario": formulario})
  
     formulario = UsuarioFormulario()
     return render(request, 'home/crear_usuario.html', {"formulario": formulario})
@@ -75,6 +75,30 @@ def editar_usuario(request, id):
     )
     return render(request, 'home/editar_usuario.html', {"formulario": formulario, 'usuario': usuario})
 
+def eliminar_usuario(request, id):
+    usuario = Usuario.objects.get(id=id)
+    usuario.delete()
+    return redirect('ver_usuarios')
 
 def acerca_de(request):
     return render(request, 'home/acerca_de.html')
+
+
+class VerUsuarios(ListView):
+    model = Usuario
+    template_name = 'home/ver_usuarios.html'
+
+class CrearUsuarios(CreateView):
+    model = Usuario
+    success_url = 'usuarios/'
+    template_name = 'home/crear_usuario.html'
+    fields = ['nombre','apellido','edad','fecha_nacimiento']
+
+class EditarUsuarios(UpdateView):
+    model = Usuario
+    success_url = 'usuarios/'
+    template_name = 'home/editar_usuario.html'
+    fields = ['nombre','apellido','edad','fecha_nacimiento']
+    
+class EliminarUsuarios():
+    ...
