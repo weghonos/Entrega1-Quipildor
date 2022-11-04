@@ -18,19 +18,19 @@ def crear_usuario(request):
         if formulario.is_valid():
             data = formulario.cleaned_data
 
-            nombre = data['nombre']
-            apellido = data['apellido']
-            edad = data['edad']
-            fecha_nacimiento = data.get("fecha_nacimiento")
-            if not fecha_nacimiento:
-                fecha_nacimiento = datetime.now()
+            usuario = Usuario(
+            nombre = data['nombre'],
+            apellido = data['apellido'],
+            edad = data['edad'],
+            fecha_nacimiento = data['fecha_nacimiento']
+            )
+            
+            usuario.save()
+            return redirect('ver_usuarios')
 
-            persona = Usuario(nombre=nombre, apellido=apellido, edad=edad, fecha_nacimiento=fecha_nacimiento)
-            persona.save()
-
-        return redirect('ver_usuarios')
-    
-
+        else:
+            return render(request, 'home/crear_usuario.html', {"formulario": formulario})
+ 
     formulario = UsuarioFormulario()
     return render(request, 'home/crear_usuario.html', {"formulario": formulario})
 
@@ -46,6 +46,37 @@ def ver_usuarios(request):
     formulario = BusquedaFormulario()
 
     return render(request, 'home/ver_usuarios.html', {"usuarios": usuarios, 'formulario': formulario})
+
+def editar_usuario(request, id):
+
+    usuario = Usuario.objects.get(id=id)
+
+    if request.method == 'POST':
+
+        formulario = UsuarioFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            usuario.nombre = data['nombre']
+            usuario.apellido = data['apellido']
+            usuario.edad = data['edad']
+            usuario.fecha_nacimiento = data['fecha_nacimiento']
+
+            usuario.save()
+            return redirect('ver_usuarios')  
+    
+
+    formulario = UsuarioFormulario(
+        initial={
+            'nombre': usuario.nombre,
+            'apellido': usuario.apellido,
+            'edad': usuario.edad, 
+            'fecha_nacimiento': usuario.fecha_nacimiento
+        }
+    )
+    return render(request, 'home/editar_usuario.html', {"formulario": formulario, 'usuario': usuario})
+
 
 def acerca_de(request):
     return render(request, 'home/acerca_de.html')

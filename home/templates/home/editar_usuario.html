@@ -1,0 +1,20 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Editar Usuarios</title>
+{% endblock titulo_pagina %}
+
+
+{% block cuerpo %}
+<br>
+<form action={% url 'editar_usuario' usuario.id %} method="POST">
+    {% csrf_token %}
+    <table align="center">
+    {{ formulario }}
+    </table>
+<br>
+    <center><button>Editar</button></center>
+    <br><br><br>
+    * Formato de fecha: MM/DD/AAAA
+</form>
+{% endblock cuerpo %}

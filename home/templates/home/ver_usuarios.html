@@ -18,7 +18,9 @@
 <p>Lista de usuarios:</p>
 {% if usuarios %}
     {% for usuario in usuarios%}
-    <li>{{usuario.nombre}} {{usuario.apellido}},{{usuario.edad}}, - {{usuario.fecha_nacimiento}}</li>
+    <li>{{usuario}}
+        <a class="navbar-brand" href={% url 'editar_usuario' usuario.id %}>Editar</a>
+    </li>
     {% endfor %}
 {%else%}
 
