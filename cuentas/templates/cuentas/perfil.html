@@ -1,0 +1,15 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Perfil</title>
+{% endblock titulo_pagina %}
+
+
+{% block cuerpo %}
+<center><h1>Perfil del usuario.</h1></center>
+<li>Informacion de la cuenta:</li>
+<li>Nombre: {{request.user.first_name}}</li>
+<li>Apellido: {{request.user.last_name}}</li>
+<li>Mail: {{request.user.email}}</li>
+
+{% endblock cuerpo %}

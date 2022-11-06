@@ -1,0 +1,21 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Eliminar Usuarios</title>
+{% endblock titulo_pagina %}
+
+
+{% block cuerpo %}
+<br>
+<form action={% url 'eliminar_usuario' object.id %} method="POST">
+    {% csrf_token %}
+    <table align="center">
+    {{ form }}
+    <p>
+        ¿ Confirmar eliminar el usuario {{usuario.nombre}}?
+        <br>
+        
+    <center><button>Eliminar</button></center>
+    <br><br><br>
+</form>
+{% endblock cuerpo %}

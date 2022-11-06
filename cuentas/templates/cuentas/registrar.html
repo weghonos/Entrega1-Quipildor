@@ -1,0 +1,17 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Registro</title>
+{% endblock titulo_pagina %}
+
+
+{% block cuerpo %}
+<br>
+<form action={% url 'registrar' %} method="POST">
+    {% csrf_token %}
+    <table align="center">
+    {{ formulario }}
+    </table>
+    <center><button>Registrarse</button></center>
+</form>
+{% endblock cuerpo %}

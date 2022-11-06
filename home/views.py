@@ -1,12 +1,20 @@
 from django.shortcuts import redirect, render
-from home.forms import BusquedaFormulario, UsuarioFormulario
+
+from home.forms import BusquedaFormulario, UsuarioFormulario, RegistroFormulario
 from home.models import Usuario
+
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request, 'home/index.html')
 
+@login_required
 def crear_usuario(request):
 
     if request.method == 'POST':
@@ -32,6 +40,7 @@ def crear_usuario(request):
     formulario = UsuarioFormulario()
     return render(request, 'home/crear_usuario.html', {"formulario": formulario})
 
+@login_required
 def ver_usuarios(request):
     
     nombre = request.GET.get('nombre', None)
@@ -45,6 +54,7 @@ def ver_usuarios(request):
 
     return render(request, 'home/ver_usuarios.html', {"usuarios": usuarios, 'formulario': formulario})
 
+@login_required
 def editar_usuario(request, id):
 
     usuario = Usuario.objects.get(id=id)
@@ -75,6 +85,7 @@ def editar_usuario(request, id):
     )
     return render(request, 'home/editar_usuario.html', {"formulario": formulario, 'usuario': usuario})
 
+@login_required
 def eliminar_usuario(request, id):
     usuario = Usuario.objects.get(id=id)
     usuario.delete()
@@ -84,21 +95,23 @@ def acerca_de(request):
     return render(request, 'home/acerca_de.html')
 
 
-class VerUsuarios(ListView):
+class VerUsuarios(LoginRequiredMixin,ListView):
     model = Usuario
     template_name = 'home/ver_usuarios.html'
 
-class CrearUsuarios(CreateView):
+class CrearUsuarios(LoginRequiredMixin,CreateView):
     model = Usuario
-    success_url = 'usuarios/'
+    success_url = '/usuarios/'
     template_name = 'home/crear_usuario.html'
     fields = ['nombre','apellido','edad','fecha_nacimiento']
 
-class EditarUsuarios(UpdateView):
+class EditarUsuarios(UpdateView,LoginRequiredMixin):
     model = Usuario
-    success_url = 'usuarios/'
+    success_url = '/usuarios/'
     template_name = 'home/editar_usuario.html'
     fields = ['nombre','apellido','edad','fecha_nacimiento']
     
-class EliminarUsuarios():
-    ...
+class EliminarUsuarios(DeleteView,LoginRequiredMixin):
+    model = Usuario
+    success_url = '/usuarios/'
+    template_name = 'home/eliminar_usuario.html'
