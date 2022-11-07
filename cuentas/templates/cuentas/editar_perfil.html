@@ -1,0 +1,17 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Editar perfil</title>
+{% endblock titulo_pagina %}
+
+
+{% block cuerpo %}
+<br>
+<form action={% url 'editar_perfil' %} method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <table align="center">
+    {{ formulario }}
+    </table>
+    <center><button>Aplicar Cambios</button></center>
+</form>
+{% endblock cuerpo %}

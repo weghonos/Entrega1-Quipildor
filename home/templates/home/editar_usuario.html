@@ -10,7 +10,8 @@
 <form action={% url 'editar_usuario' usuario.id %} method="POST">
     {% csrf_token %}
     <table align="center">
-    {{ form }}
+        {{ form.media }}
+        {{ form }}
     </table>
 <br>
     <center><button>Editar</button></center>

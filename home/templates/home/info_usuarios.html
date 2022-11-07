@@ -1,0 +1,17 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Info del Usuario</title>
+{% endblock titulo_pagina %}
+
+{% block cuerpo %}
+
+<p>
+    <li>Nombre: {{usuario.nombre}}</li>
+    </li>Apellido: {{usuario.apellido}}</li>
+    </li>Edad: {{usuario.edad}}</li>
+    </li>Fecha_nacimiento: {{usuario.fecha_nacimiento}}</li>
+    </li>Descripcion: {{usuario.descripcion | safe}}</li>
+</p>
+
+{% endblock cuerpo %}

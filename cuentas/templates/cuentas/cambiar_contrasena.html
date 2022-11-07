@@ -1,21 +1,17 @@
 {% extends 'home/base.html'%}
 
 {% block titulo_pagina %}
-<title>Crear Usuarios</title>
+<title>Cambiar contraseña</title>
 {% endblock titulo_pagina %}
 
 
 {% block cuerpo %}
 <br>
-<form action={% url 'crear_usuario' %} method="POST">
+<form action={% url 'cambiar_contrasena' %} method="POST">
     {% csrf_token %}
     <table align="center">
-    {{form.media}}
     {{ form }}
     </table>
-<br>
-    <center><button>Crear</button></center>
-    <br><br><br>
-    * Formato de fecha: MM/DD/AAAA
+    <center><button>Cambiar contraseña</button></center>
 </form>
 {% endblock cuerpo %}

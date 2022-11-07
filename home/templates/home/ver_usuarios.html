@@ -8,20 +8,20 @@
 <form action={% url 'ver_usuarios' %} method="GET">
     <br>
     <table align="center">
-    {{ formulario }}
+    {{ form }}
     </table>
+    {{formulario}}
     <center><button>Buscar</button></center>
 </form>
 <br><br>
 
-
 <p>Lista de usuarios:</p>
 {% if object_list %}
     {% for usuario in object_list%}
-    <li>{{usuario}}
-        <a class="navbar-brand" href={% url 'editar_usuario' usuario.id %}>Editar</a>
-        <a class="navbar-brand" href={% url 'eliminar_usuario' usuario.id %}>Eliminar</a>
-    </li>
+    <li><a class="navbar-brand" href={% url 'info_usuario' usuario.id %}>{{usuario}}</a></li>
+    </li><a class="navbar-brand" href={% url 'editar_usuario' usuario.id %}>Editar</a></li>
+    </li><a class="navbar-brand" href={% url 'eliminar_usuario' usuario.id %}>Eliminar</a></li>
+    
     {% endfor %}
 {%else%}
 
