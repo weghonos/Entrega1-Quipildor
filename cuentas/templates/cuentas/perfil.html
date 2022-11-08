@@ -9,13 +9,14 @@
 <center><h1>Perfil del usuario.</h1></center>
 <p>
     <li>
-    {% if request.user.extensionusuario.avatar.url %}
-        <img src={{ request.user.extensionusuario.avatar.url }} alt="" witdh = "200" height= "200">
-    {% else %}
-    Imagen no cargada
-    {% endif %}
+        {% if request.user.extensionusuario.avatar %}
+        <img src={{request.user.extensionusuario.avatar.url}} alt="" witdh = "200" height= "200">
+        {% else %}
+        Imagen no cargada
+        {% endif %}
     </li>
 </p>
+<p>
 <li>Informacion de la cuenta:</li>
 
 <li>Nombre: {{request.user.first_name}}</li>
