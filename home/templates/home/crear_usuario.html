@@ -10,12 +10,13 @@
 <form action={% url 'crear_usuario' %} method="POST">
     {% csrf_token %}
     <table align="center">
-    {{form.media}}
+        {{form.media}}
     {{ form }}
     </table>
+    <center><button>Crear</button></center>
+
     </form>
 <br>
-    <center><button>Crear</button></center>
     <br><br><br>
     * Formato de fecha: MM/DD/AAAA
 </form>

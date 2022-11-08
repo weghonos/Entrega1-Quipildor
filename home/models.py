@@ -8,7 +8,7 @@ class Usuario(models.Model):
     edad = models.IntegerField()
     fecha_nacimiento = models.DateField()
     descripcion = RichTextField(null=True)
-    imagen = models.ImageField(upload_to='imagen',null=True, blank=True)
+    #imagen = models.ImageField(upload_to='imagen',null=True, blank=True)
 
     def __str__(self):
         return f'Nombre: {self.nombre} - Apellido: {self.apellido}'
