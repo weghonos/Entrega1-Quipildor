@@ -36,8 +36,8 @@ class CrearUsuarios(LoginRequiredMixin,CreateView):
     model = Usuario
     success_url = '/usuarios/'
     template_name = 'home/crear_usuario.html'
-    fields = ['nombre','apellido','edad','fecha_nacimiento', 'descripcion']
-    #fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion','imagen']
+    #fields = ['nombre','apellido','edad','fecha_nacimiento', 'descripcion']
+    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion','imagen']
 
 class EditarUsuarios(LoginRequiredMixin, UpdateView):
     model = Usuario

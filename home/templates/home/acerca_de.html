@@ -13,8 +13,10 @@
 <p>Edad: 33 años</p>
 <p>Título: Técnico superior en análisis de sistemas</p>
 <p>Ocupacion: Administrador de redes informaticas.</p>
-
+{% for usuario in object_list %}
+{% endfor %}
 </table>
 </div>
+<img src="{{ usuario.imagen }}" alt="">
 
 {% endblock cuerpo %}

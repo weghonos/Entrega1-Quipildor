@@ -8,7 +8,7 @@ class UsuarioFormulario(forms.Form):
     fecha_nacimiento = forms.DateField(required=False)
     descripcion = RichTextFormField(required=False)
 
-    #imagen = forms.ImageField(required=False)
+    imagen = forms.ImageField(required=False)
 
 class BusquedaUsuario(forms.Form):
     nombre = forms.CharField(max_length=30, required=False)
