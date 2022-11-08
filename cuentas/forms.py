@@ -18,7 +18,6 @@ class EditarPerfilFormulario(forms.Form):
     last_name = forms.CharField(label='Apellido')
     avatar = forms.ImageField(required=False)
 
-
 class CambiarPassword(PasswordChangeForm):
     oldpassword = forms.CharField(label='Contraseña actual', widget=forms.PasswordInput)
     new_password1 = forms.CharField(label='Contraseña nueva', widget=forms.PasswordInput)

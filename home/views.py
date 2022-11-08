@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from home.models import Usuario
 from home.forms import BusquedaUsuario
 
@@ -36,13 +36,13 @@ class CrearUsuarios(LoginRequiredMixin,CreateView):
     model = Usuario
     success_url = '/usuarios/'
     template_name = 'home/crear_usuario.html'
-    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion','foto']
+    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion', 'imagen']
 
 class EditarUsuarios(LoginRequiredMixin, UpdateView):
     model = Usuario
     success_url = '/usuarios/'
     template_name = 'home/editar_usuario.html'
-    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion','foto']
+    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion']
     
 class EliminarUsuarios(LoginRequiredMixin, DeleteView):
     model = Usuario
@@ -56,16 +56,3 @@ class InfoUsuarios(DetailView):
 class Posts(ListView):
     model = Usuario
     template_name = 'home/listado_posts.html'
-
-    # def get_queryset(self):
-    #     nombre = self.request.GET.get('nombre', '')
-    #     if nombre:
-    #         object_list = self.model.objects.filter(nombre__icontains=nombre)
-    #     else:
-    #         object_list = self.model.objects.all()
-    #     return object_list
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["formulario"] = BusquedaUsuario()
-    #     return context
