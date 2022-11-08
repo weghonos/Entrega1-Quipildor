@@ -1,0 +1,23 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Ver Usuarios</title>
+{% endblock titulo_pagina %}
+
+{% block cuerpo %}
+
+<p>Lista de usuarios:</p>
+{% if object_list %}
+    {% for usuario in object_list%}
+    {{usuario.nombre}}    
+    {{usuario.apellido}}    
+    {{usuario.foto}}    
+    {{usuario.descripcion | safe}}    
+    {% endfor %}
+{%else%}
+
+No se encontraron resultados de la busqueda!
+
+{% endif %}
+
+{% endblock cuerpo %}

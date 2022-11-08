@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
+
 class Usuario(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)

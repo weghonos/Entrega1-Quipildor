@@ -20,7 +20,7 @@ class EditarPerfilFormulario(forms.Form):
 
 
 class CambiarPassword(PasswordChangeForm):
-    old_password = forms.CharField(label='Contraseña actual', widget=forms.PasswordInput)
+    oldpassword = forms.CharField(label='Contraseña actual', widget=forms.PasswordInput)
     new_password1 = forms.CharField(label='Contraseña nueva', widget=forms.PasswordInput)
     new_password2 = forms.CharField(label='Repetir Contraseña nueva', widget=forms.PasswordInput)
 

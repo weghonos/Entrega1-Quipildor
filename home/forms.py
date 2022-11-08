@@ -5,6 +5,7 @@ class UsuarioFormulario(forms.Form):
     apellido = forms.CharField(max_length=30)
     edad = forms.IntegerField()
     fecha_nacimiento = forms.DateField(required=False)
+    foto = forms.ImageField(required=False)
     #descripcion =  RichTextField(null=True)
 
 
