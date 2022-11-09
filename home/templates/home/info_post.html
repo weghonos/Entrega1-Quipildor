@@ -1,14 +1,13 @@
 {% extends 'home/base.html'%}
 
 {% block titulo_pagina %}
-<title>Ver Usuarios</title>
+<title>Info del Usuario</title>
 {% endblock titulo_pagina %}
 
 {% block cuerpo %}
-<br>
-{% if object_list %}
-    {% for post in object_list%}
-    <table align="center">
+
+<p>
+    <table>
         <tr>
           <td>Nombre: {{post.titulo}}</td>
         </tr>
@@ -19,17 +18,12 @@
             <td>Fecha de creacion: {{post.fecha_creacion}}</td>
         </tr>
         <tr>
-            <td>Foto: <img src={{post.imagen.url}} width="400" height="500"></td>
+            <td>Foto: <img src={{post.imagen.url}}></td>
         </tr>
         <tr>
-            <td>Informacion: {{post.contenido | safe}}</td>
+            <td>Informacion: {{post.contenido | safe }}</td>
         </tr>
       </table>
-      <br>
-      {%endfor%}
-{%else%}
-
-¡Aun no hay posts!
-{% endif %}
+</p>
 
 {% endblock cuerpo %}

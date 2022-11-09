@@ -5,7 +5,7 @@
 {% endblock titulo_pagina %}
 
 {% block cuerpo %}
-<form action={% url 'ver_usuarios' %} method="GET">
+<form action={% url 'ver_posts' %} method="GET">
     <br>
     <table align="center">
     </table>
@@ -17,9 +17,9 @@
 <p>Lista de usuarios:</p>
 {% if object_list %}
     {% for usuario in object_list%}
-    <li><a class="navbar-brand" href={% url 'info_usuario' usuario.id %}>{{usuario}}</a></li>
-    </li><a class="navbar-brand" href={% url 'editar_usuario' usuario.id %}>Editar</a></li>
-    </li><a class="navbar-brand" href={% url 'eliminar_usuario' usuario.id %}>Eliminar</a></li>    
+    <li><a class="navbar-brand" href={% url 'info_post' usuario.id %}>{{usuario}}</a></li>
+    </li><a class="navbar-brand" href={% url 'editar_post' usuario.id %}>Editar</a></li>
+    </li><a class="navbar-brand" href={% url 'eliminar_post' usuario.id %}>Eliminar</a></li>    
     {% endfor %}
 {%else%}
 

@@ -1,13 +1,12 @@
 from django import forms
 from ckeditor.fields import RichTextFormField
 
-class UsuarioFormulario(forms.Form):
-    nombre = forms.CharField(max_length=30)
-    apellido = forms.CharField(max_length=30)
-    edad = forms.IntegerField()
-    fecha_nacimiento = forms.DateField(required=False)
+class PostFormulario(forms.Form):
+    titulo = forms.CharField(max_length=30)
+    subtitulo = forms.CharField(max_length=30)
+    fecha_creacion = forms.DateField(required=False)
     imagen = forms.ImageField(required=False)
-    descripcion = RichTextFormField(required=False)
+    contenido= RichTextFormField(required=False)
 
-class BusquedaUsuario(forms.Form):
-    nombre = forms.CharField(max_length=30, required=False)
+class BusquedaPost(forms.Form):
+    titulo = forms.CharField(max_length=30, required=False)

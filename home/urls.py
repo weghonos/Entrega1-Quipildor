@@ -3,12 +3,12 @@ from home import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('posts/', views.Posts.as_view(), name="posts"),
-    path('usuarios/', views.VerUsuarios.as_view(), name="ver_usuarios"),
-    path('usuarios/crear', views.CrearUsuarios.as_view(), name="crear_usuario"),
-    path('usuarios/editar/<int:pk>', views.EditarUsuarios.as_view(), name="editar_usuario"),
-    path('usuarios/eliminar/<int:pk>', views.EliminarUsuarios.as_view(), name="eliminar_usuario"),
-    path('usuarios/info/<int:pk>', views.InfoUsuarios.as_view(), name="info_usuario"),
-    path('usuarios/', views.VerUsuarios.as_view(), name="ver_usuarios"),
+    path('posts/lista', views.Posts.as_view(), name="posts"),
+    path('post/', views.VerPosts.as_view(), name="ver_posts"),
+    path('post/crear', views.CrearPost.as_view(), name="crear_post"),
+    path('post/editar/<int:pk>', views.EditarPost.as_view(), name="editar_post"),
+    path('post/eliminar/<int:pk>', views.EliminarPost.as_view(), name="eliminar_post"),
+    path('post/info/<int:pk>', views.InfoPost.as_view(), name="info_post"),
+    path('posts/', views.VerPosts.as_view(), name="ver_posts"),
     path('acerca_de/', views.acerca_de, name="acerca_de"),
     ]

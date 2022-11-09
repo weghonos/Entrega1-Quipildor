@@ -1,20 +1,22 @@
 {% extends 'home/base.html'%}
 
 {% block titulo_pagina %}
-<title>Editar Usuarios</title>
+<title>Crear Usuarios</title>
 {% endblock titulo_pagina %}
 
 
 {% block cuerpo %}
 <br>
-<form action={% url 'editar_usuario' usuario.id %} method="POST" enctype="multipart/form-data">
+<form action={% url 'crear_post' %} method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table align="center">
-        {{ form.media }}
         {{ form.as_p }}
+
+        {{form.media}}
     </table>
+    <center><button>Crear</button></center>
+    </form>
 <br>
-    <center><button>Editar</button></center>
     <br><br><br>
     * Formato de fecha: MM/DD/AAAA
 </form>

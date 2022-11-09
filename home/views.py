@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from home.models import Usuario
-from home.forms import BusquedaUsuario
+from home.models import Post
+from home.forms import BusquedaPost
 
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -15,9 +15,9 @@ def index(request):
 def acerca_de(request):
     return render(request, 'home/acerca_de.html')
 
-class VerUsuarios(LoginRequiredMixin,ListView):
-    model = Usuario
-    template_name = 'home/ver_usuarios.html'
+class VerPosts(LoginRequiredMixin,ListView):
+    model = Post
+    template_name = 'home/ver_posts.html'
 
     def get_queryset(self):
         nombre = self.request.GET.get('nombre', '')
@@ -29,44 +29,31 @@ class VerUsuarios(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["formulario"] = BusquedaUsuario()
+        context["formulario"] = BusquedaPost()
         return context
 
-class CrearUsuarios(LoginRequiredMixin,CreateView):
-    model = Usuario
-    success_url = '/usuarios/'
-    template_name = 'home/crear_usuario.html'
+class CrearPost(LoginRequiredMixin,CreateView):
+    model = Post
+    success_url = '/posts/'
+    template_name = 'home/crear_post.html'
     #fields = ['nombre','apellido','edad','fecha_nacimiento', 'descripcion']
-    fields = ['nombre','apellido','edad','fecha_nacimiento','imagen','descripcion']
+    fields = ['titulo','subtitulo','fecha_creacion','imagen','contenido']
 
-class EditarUsuarios(LoginRequiredMixin, UpdateView):
-    model = Usuario
-    success_url = '/usuarios/'
-    template_name = 'home/editar_usuario.html'
-    fields = ['nombre','apellido','edad','fecha_nacimiento','imagen','descripcion']
+class EditarPost(LoginRequiredMixin, UpdateView):
+    model = Post
+    success_url = '/posts/'
+    template_name = 'home/editar_post.html'
+    fields = ['titulo','subtitulo','fecha_creacion','imagen','contenido']
     
-class EliminarUsuarios(LoginRequiredMixin, DeleteView):
-    model = Usuario
-    success_url = '/usuarios/'
-    template_name = 'home/eliminar_usuario.html'
+class EliminarPost(LoginRequiredMixin, DeleteView):
+    model = Post
+    success_url = '/posts/'
+    template_name = 'home/eliminar_post.html'
 
-class InfoUsuarios(DetailView):
-    model = Usuario
-    template_name = 'home/info_usuarios.html'
+class InfoPost(DetailView):
+    model = Post
+    template_name = 'home/info_post.html'
 
 class Posts(ListView):
-    model = Usuario
+    model = Post
     template_name = 'home/listado_posts.html'
-
-    # def get_queryset(self):
-    #     nombre = self.request.GET.get('nombre', '')
-    #     if nombre:
-    #         object_list = self.model.objects.filter(nombre__icontains=nombre)
-    #     else:
-    #         object_list = self.model.objects.all()
-    #     return object_list
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["formulario"] = BusquedaUsuario()
-    #     return context

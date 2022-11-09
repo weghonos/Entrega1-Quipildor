@@ -7,12 +7,12 @@
 
 {% block cuerpo %}
 <br>
-<form action={% url 'eliminar_usuario' object.id %} method="POST">
+<form action={% url 'eliminar_post' object.id %} method="POST">
     {% csrf_token %}
     <table align="center">
     {{ form }}
     <p>
-        ¿ Confirmar eliminar el usuario {{usuario.nombre}}?
+        ¿ Confirmar eliminar el usuario {{post.nombre}}?
         <br>
         
     <center><button>Eliminar</button></center>
