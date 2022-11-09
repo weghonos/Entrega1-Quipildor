@@ -7,14 +7,14 @@
 
 {% block cuerpo %}
 <br>
-<form action={% url 'crear_usuario' %} method="POST">
+<form action={% url 'crear_usuario' %} method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table align="center">
+        {{ form.as_p }}
+
         {{form.media}}
-    {{ form }}
     </table>
     <center><button>Crear</button></center>
-
     </form>
 <br>
     <br><br><br>

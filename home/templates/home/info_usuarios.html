@@ -7,14 +7,26 @@
 {% block cuerpo %}
 
 <p>
-    <li>Nombre: {{usuario.nombre}}</li>
-    </li>Apellido: {{usuario.apellido}}</li>
-    </li>Edad: {{usuario.edad}}</li>
-    </li>Fecha_nacimiento: {{usuario.fecha_nacimiento}}</li>
-    </li>Foto: {{usuario.foto}}</li>
-    </li>Descripcion: {{usuario.descripcion | safe}}</li>
-    </li>Descripcion: {{usuario.imagen}}</li>
-
+    <table>
+        <tr>
+          <td>Nombre: {{usuario.nombre}}</td>
+        </tr>
+        <tr>
+          <td>Apellido: {{usuario.apellido}}</td>
+        </tr>
+        <tr>
+          <td>Edad: {{usuario.edad}}</td>
+        </tr>
+        <tr>
+            <td>Fecha_nacimiento: {{usuario.fecha_nacimiento}}</td>
+        </tr>
+        <tr>
+            <td>Foto: {{usuario.foto.url}}</td>
+        </tr>
+        <tr>
+            <td>Descripcion: {{usuario.descripcion | safe}}</td>
+        </tr>
+      </table>
 </p>
 
 {% endblock cuerpo %}

@@ -37,13 +37,13 @@ class CrearUsuarios(LoginRequiredMixin,CreateView):
     success_url = '/usuarios/'
     template_name = 'home/crear_usuario.html'
     #fields = ['nombre','apellido','edad','fecha_nacimiento', 'descripcion']
-    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion','imagen']
+    fields = ['nombre','apellido','edad','fecha_nacimiento','imagen','descripcion']
 
 class EditarUsuarios(LoginRequiredMixin, UpdateView):
     model = Usuario
     success_url = '/usuarios/'
     template_name = 'home/editar_usuario.html'
-    fields = ['nombre','apellido','edad','fecha_nacimiento','descripcion']
+    fields = ['nombre','apellido','edad','fecha_nacimiento','imagen','descripcion']
     
 class EliminarUsuarios(LoginRequiredMixin, DeleteView):
     model = Usuario

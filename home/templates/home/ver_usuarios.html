@@ -19,9 +19,7 @@
     {% for usuario in object_list%}
     <li><a class="navbar-brand" href={% url 'info_usuario' usuario.id %}>{{usuario}}</a></li>
     </li><a class="navbar-brand" href={% url 'editar_usuario' usuario.id %}>Editar</a></li>
-    </li><a class="navbar-brand" href={% url 'eliminar_usuario' usuario.id %}>Eliminar</a></li>
-</li><a class="navbar-brand" href={% url 'eliminar_usuario' usuario.imagen %}>Eliminar</a></li>
-    
+    </li><a class="navbar-brand" href={% url 'eliminar_usuario' usuario.id %}>Eliminar</a></li>    
     {% endfor %}
 {%else%}
 
