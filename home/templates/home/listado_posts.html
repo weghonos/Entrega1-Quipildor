@@ -10,16 +10,19 @@
     {% for post in object_list%}
     <table align="center">
         <tr>
-          <td>Nombre: {{post.titulo}}</td>
+          <td><h1>{{post.titulo}}<h1></td>
         </tr>
         <tr>
-          <td>Apellido: {{post.subtitulo}}</td>
+          <td><h4>{{post.subtitulo}}<h4></td>
         </tr>
         <tr>
             <td>Fecha de creacion: {{post.fecha_creacion}}</td>
         </tr>
         <tr>
-            <td>Foto: <img src={{post.imagen.url}} width="400" height="500"></td>
+          <td>Autor: {{post.autor}}</td>
+      </tr>
+        <tr>
+            <td><img src={{post.imagen.url}} width="400" height="500"></td>
         </tr>
         <tr>
             <td>Informacion: {{post.contenido | safe}}</td>

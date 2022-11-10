@@ -8,7 +8,7 @@ class Post(models.Model):
     fecha_creacion = models.DateField(null=True)
     contenido = RichTextField(null=True)
     imagen = models.ImageField(upload_to='imagenes/',null=True, blank=True)
-    
+    autor = models.CharField(null=True,max_length=30)
     
 
     def __str__(self):

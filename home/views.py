@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from home.models import Post
-from home.forms import BusquedaPost
+from home.forms import BusquedaPost, PostFormulario
 
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -36,14 +36,14 @@ class CrearPost(LoginRequiredMixin,CreateView):
     model = Post
     success_url = '/posts/'
     template_name = 'home/crear_post.html'
-    #fields = ['nombre','apellido','edad','fecha_nacimiento', 'descripcion']
-    fields = ['titulo','subtitulo','fecha_creacion','imagen','contenido']
+    fields = ['titulo','subtitulo','fecha_creacion','autor','imagen','contenido']
+
 
 class EditarPost(LoginRequiredMixin, UpdateView):
     model = Post
     success_url = '/posts/'
     template_name = 'home/editar_post.html'
-    fields = ['titulo','subtitulo','fecha_creacion','imagen','contenido']
+    fields = ['titulo','subtitulo','fecha_creacion','autor','imagen','contenido']
     
 class EliminarPost(LoginRequiredMixin, DeleteView):
     model = Post
