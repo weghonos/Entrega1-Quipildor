@@ -36,14 +36,14 @@ class CrearPost(LoginRequiredMixin,CreateView):
     model = Post
     success_url = '/posts/'
     template_name = 'home/crear_post.html'
-    fields = ['titulo','subtitulo','fecha_creacion','autor','imagen','contenido']
+    fields = ['titulo','subtitulo','autor','imagen','contenido']
 
 
 class EditarPost(LoginRequiredMixin, UpdateView):
     model = Post
     success_url = '/posts/'
     template_name = 'home/editar_post.html'
-    fields = ['titulo','subtitulo','fecha_creacion','autor','imagen','contenido']
+    fields = ['titulo','subtitulo','autor','imagen','contenido']
     
 class EliminarPost(LoginRequiredMixin, DeleteView):
     model = Post
