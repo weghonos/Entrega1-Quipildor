@@ -36,14 +36,17 @@ class CrearPost(LoginRequiredMixin,CreateView):
     model = Post
     success_url = '/posts/'
     template_name = 'home/crear_post.html'
-    fields = ['titulo','subtitulo','autor','imagen','contenido']
+    fields = ['titulo','subtitulo','imagen','contenido']
 
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
 
 class EditarPost(LoginRequiredMixin, UpdateView):
     model = Post
     success_url = '/posts/'
     template_name = 'home/editar_post.html'
-    fields = ['titulo','subtitulo','autor','imagen','contenido']
+    fields = ['titulo','subtitulo','imagen','contenido']
     
 class EliminarPost(LoginRequiredMixin, DeleteView):
     model = Post

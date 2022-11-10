@@ -10,8 +10,7 @@ class Post(models.Model):
     fecha_creacion = models.DateField(null=True,auto_now_add=True)
     contenido = RichTextField(null=True)
     imagen = models.ImageField(upload_to='imagenes/',null=True, blank=True)
-    #autor = models.ForeignKey(User(), on_delete=models.CASCADE, null=True)
-    
-    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    autor = models.ForeignKey(User(), on_delete=models.CASCADE, null=True)
+
     def __str__(self):
-        return f'Titulo: {self.titulo} - Subtitulo: {self.subtitulo}'
+        return f'Titulo: {self.titulo} - Subtitulo: {self.subtitulo} - Autor: {self.autor}'

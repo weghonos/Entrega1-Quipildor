@@ -6,7 +6,6 @@ class PostFormulario(forms.Form):
     subtitulo = forms.CharField(max_length=30)
     imagen = forms.ImageField(required=False)
     contenido= RichTextFormField(required=False)
-    #autor = forms.CharField(max_length=30)
 
 class BusquedaPost(forms.Form):
     titulo = forms.CharField(max_length=30, required=False)
