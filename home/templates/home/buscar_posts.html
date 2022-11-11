@@ -1,0 +1,34 @@
+{% extends 'home/base.html'%}
+
+{% block titulo_pagina %}
+<title>Listado de Posts</title>
+{% endblock titulo_pagina %}
+
+{% block cuerpo %}
+<form action={% url 'ver_posts' %} method="GET">
+    <br>
+    <table align="center">    {{formulario}}
+    </table>
+
+    <center><button>Buscar</button></center>
+</form>
+<br><br>
+
+<p>Lista de posteos:</p>
+{% if object_list %}
+    {% for camaron in object_list%}
+    <li>{{camaron}}<a class="navbar-brand" href={% url 'info_post' camaron.id %}>  Leer Mas</a></li>
+    {% if request.user.is_authenticated %}
+    </li><a class="navbar-brand" href={% url 'editar_post' camaron.id %}>Editar</a></li>
+    </li><a class="navbar-brand" href={% url 'eliminar_post' camaron.id %}>Eliminar</a></li>    
+    {%else%}
+    *Para poder editar y eliminar posts debe estar logueado
+    {%endif%}
+    {% endfor %}
+{%else%}
+
+No se encontraron resultados de la busqueda!
+
+{% endif %}
+
+{% endblock cuerpo %}

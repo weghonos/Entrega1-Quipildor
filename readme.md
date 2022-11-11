@@ -1,6 +1,15 @@
 ### ENTREGA1-QUIPILDOR CRISTIAN.
 
 *La base de datos se encuentra vacia, rellenar con un usuario para realizar pruebas *
+*Usuario administrador Django:  admin  *
+*Password: lilo7259    *
+
+>Requerimientos antes de iniciar :
+>>instalar :
+>>django
+>>django-ckeditor
+>>pillow
+
 
 
 > #### Direcciones web y sus funciones:
@@ -8,7 +17,7 @@
 >> */home/* 
 >> ##### Muestra la pagina principal
 >
->>*/ver_usuarios/*
+>>*/ver_posts/*
 >>##### Visualización y Búsqueda de usuarios dentro de la BD.
 >
 >>*/crear_usuario/*

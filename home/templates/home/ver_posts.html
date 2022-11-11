@@ -1,34 +1,44 @@
 {% extends 'home/base.html'%}
 
 {% block titulo_pagina %}
-<title>Listado de Posts</title>
+<title>Posts</title>
 {% endblock titulo_pagina %}
 
 {% block cuerpo %}
-<form action={% url 'ver_posts' %} method="GET">
-    <br>
-    <table align="center">
-    </table>
-    {{formulario}}
-    <center><button>Buscar</button></center>
-</form>
-<br><br>
-
-<p>Lista de posteos:</p>
+<br>
 {% if object_list %}
-    {% for usuario in object_list%}
-    <li>{{usuario}}<a class="navbar-brand" href={% url 'info_post' usuario.id %}>  Leer Mas</a></li>
-    {% if request.user.is_authenticated %}
-    </li><a class="navbar-brand" href={% url 'editar_post' usuario.id %}>Editar</a></li>
-    </li><a class="navbar-brand" href={% url 'eliminar_post' usuario.id %}>Eliminar</a></li>    
-    {%else%}
-    *Para poder editar y eliminar posts debe estar logueado
-    {%endif%}
-    {% endfor %}
+    {% for camaron in object_list%}
+    <table align="center">
+        <tr>
+          <td><h1>{{camaron.especie}}<h1></td>
+        </tr>
+        <tr>
+          <td><h4>{{camaron.variedad}}<h4></td>
+        </tr>
+        <tr>
+          <tr>
+            <td>Temperatura: {{camaron.temperatura}}</td>
+        </tr>
+        <tr>
+            <td>Ph: {{camaron.ph}}</td>
+        </tr>
+            <td>Fecha de creacion: {{camaron.fecha_creacion}}</td>
+        </tr>
+        <tr>
+          <td>Autor: {{camaron.autor}}</td>
+      </tr>
+        <tr>
+            <td><img src={{camaron.imagen.url}} width="400" height="400"></td>
+        </tr>
+        <tr>
+            <td>Informacion: {{camaron.contenido | safe}}</td>
+        </tr>
+      </table>
+      <br>
+      {%endfor%}
 {%else%}
 
-No se encontraron resultados de la busqueda!
-
+¡Aun no hay posts!
 {% endif %}
 
 {% endblock cuerpo %}

@@ -9,22 +9,29 @@
 <p>
     <table align="center">
         <tr>
-          <td>Titulo: {{post.titulo}}</td>
+          <td>Especie: {{camaron.especie}}</td>
         </tr>
         <tr>
-          <td>Subtitulo: {{post.subtitulo}}</td>
+          <td>Variedad: {{camaron.variedad}}</td>
         </tr>
         <tr>
-            <td>Fecha de creacion: {{post.fecha_creacion}}</td>
+          <tr>
+            <td>Temperatura: {{camaron.temperatura}}</td>
         </tr>
         <tr>
-          <td>Autor: {{post.autor}}</td>
+            <td>Ph: {{camaron.ph}}</td>
+        </tr>
+          <tr>
+            <td>Fecha de creacion: {{camaron.fecha_creacion}}</td>
+        </tr>
+        <tr>
+          <td>Autor: {{camaron.autor}}</td>
       </tr>
         <tr>
-            <td><img src={{post.imagen.url}} width="400" height="400"></td>
+            <td><img src={{camaron.imagen.url}} width="400" height="400"></td>
         </tr>
         <tr>
-            <td>Informacion: {{post.contenido | safe }}</td>
+            <td>Informacion: {{camaron.contenido | safe }}</td>
         </tr>
       </table>
 </p>

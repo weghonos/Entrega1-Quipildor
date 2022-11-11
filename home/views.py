@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from home.models import Post
+from home.models import Camaron
 from home.forms import BusquedaPost, PostFormulario
 
 from django.views.generic import ListView, DetailView
@@ -16,13 +16,13 @@ def acerca_de(request):
     return render(request, 'home/acerca_de.html')
 
 class VerPosts(ListView):
-    model = Post
-    template_name = 'home/ver_posts.html'
+    model = Camaron
+    template_name = 'home/buscar_posts.html'
 
     def get_queryset(self):
-        titulo = self.request.GET.get('titulo', '')
+        titulo = self.request.GET.get('especie', '')
         if titulo:
-            object_list = self.model.objects.filter(titulo__icontains=titulo)
+            object_list = self.model.objects.filter(especie__icontains=especie)
         else:
             object_list = self.model.objects.all()
         return object_list
@@ -33,30 +33,30 @@ class VerPosts(ListView):
         return context
 
 class CrearPost(LoginRequiredMixin,CreateView):
-    model = Post
+    model = Camaron
     success_url = '/posts/'
     template_name = 'home/crear_post.html'
-    fields = ['titulo','subtitulo','imagen','contenido']
+    fields = ['especie','variedad', 'temperatura', 'ph', 'imagen','contenido']
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
         return super().form_valid(form)
 
 class EditarPost(LoginRequiredMixin, UpdateView):
-    model = Post
+    model = Camaron
     success_url = '/posts/'
     template_name = 'home/editar_post.html'
-    fields = ['titulo','subtitulo','imagen','contenido']
+    fields = ['especie','variedad', 'temperatura', 'ph', 'imagen','contenido']
     
 class EliminarPost(LoginRequiredMixin, DeleteView):
-    model = Post
+    model = Camaron
     success_url = '/posts/'
     template_name = 'home/eliminar_post.html'
 
 class InfoPost(DetailView):
-    model = Post
+    model = Camaron
     template_name = 'home/info_post.html'
 
 class Posts(ListView):
-    model = Post
-    template_name = 'home/listado_posts.html'
+    model = Camaron
+    template_name = 'home/ver_posts.html'
