@@ -1,7 +1,7 @@
 {% extends 'home/base.html'%}
 
 {% block titulo_pagina %}
-<title>Ver Usuarios</title>
+<title>Listado de Posts</title>
 {% endblock titulo_pagina %}
 
 {% block cuerpo %}
@@ -14,12 +14,16 @@
 </form>
 <br><br>
 
-<p>Lista de usuarios:</p>
+<p>Lista de posteos:</p>
 {% if object_list %}
     {% for usuario in object_list%}
-    <li><a class="navbar-brand" href={% url 'info_post' usuario.id %}>{{usuario}}</a></li>
+    <li>{{usuario}}<a class="navbar-brand" href={% url 'info_post' usuario.id %}>  Leer Mas</a></li>
+    {% if request.user.is_authenticated %}
     </li><a class="navbar-brand" href={% url 'editar_post' usuario.id %}>Editar</a></li>
     </li><a class="navbar-brand" href={% url 'eliminar_post' usuario.id %}>Eliminar</a></li>    
+    {%else%}
+    *Para poder editar y eliminar posts debe estar logueado
+    {%endif%}
     {% endfor %}
 {%else%}
 

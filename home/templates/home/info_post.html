@@ -7,12 +7,12 @@
 {% block cuerpo %}
 
 <p>
-    <table>
+    <table align="center">
         <tr>
-          <td>Nombre: {{post.titulo}}</td>
+          <td>Titulo: {{post.titulo}}</td>
         </tr>
         <tr>
-          <td>Apellido: {{post.subtitulo}}</td>
+          <td>Subtitulo: {{post.subtitulo}}</td>
         </tr>
         <tr>
             <td>Fecha de creacion: {{post.fecha_creacion}}</td>
@@ -21,7 +21,7 @@
           <td>Autor: {{post.autor}}</td>
       </tr>
         <tr>
-            <td>Foto: <img src={{post.imagen.url}}></td>
+            <td><img src={{post.imagen.url}} width="400" height="400"></td>
         </tr>
         <tr>
             <td>Informacion: {{post.contenido | safe }}</td>

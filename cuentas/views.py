@@ -53,6 +53,8 @@ def editar_perfil(request):
             request.user.first_name = data_nueva['first_name']
             request.user.last_name = data_nueva['last_name']
             request.user.email = data_nueva['email']
+            request.user.extensionusuario.descripcion = data_nueva['descripcion']
+            request.user.extensionusuario.link = data_nueva['link']
             request.user.extensionusuario.avatar = data_nueva['avatar']
             
             request.user.extensionusuario.save()
@@ -64,6 +66,8 @@ def editar_perfil(request):
                 'first_name': request.user.first_name,
                 'last_name': request.user.last_name,
                 'email': request.user.email,
+                'descripcion': request.user.extensionusuario.descripcion,
+                'link': request.user.extensionusuario.link,
                 'avatar': request.user.extensionusuario.avatar,
             }
         )

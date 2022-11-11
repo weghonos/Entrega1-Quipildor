@@ -16,6 +16,9 @@ class EditarPerfilFormulario(forms.Form):
     email = forms.CharField()
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
+    descripcion = forms.CharField(label='Descripcion')
+    link = forms.CharField(label='Link')
+
     avatar = forms.ImageField(required=False)
 
 class CambiarPassword(PasswordChangeForm):

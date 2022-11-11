@@ -15,14 +15,14 @@ def index(request):
 def acerca_de(request):
     return render(request, 'home/acerca_de.html')
 
-class VerPosts(LoginRequiredMixin,ListView):
+class VerPosts(ListView):
     model = Post
     template_name = 'home/ver_posts.html'
 
     def get_queryset(self):
-        nombre = self.request.GET.get('nombre', '')
-        if nombre:
-            object_list = self.model.objects.filter(nombre__icontains=nombre)
+        titulo = self.request.GET.get('titulo', '')
+        if titulo:
+            object_list = self.model.objects.filter(titulo__icontains=titulo)
         else:
             object_list = self.model.objects.all()
         return object_list
