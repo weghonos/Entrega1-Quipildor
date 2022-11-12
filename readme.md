@@ -4,7 +4,7 @@ La base de datos se encuentra vacia, rellenar con un usuario o usar admin para r
 
 Usuario administrador:  admin
 
-Password: lilo7259    
+Password: patata123    
 
 >Requerimientos antes de iniciar :
 >>instalar:
