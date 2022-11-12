@@ -1,10 +1,10 @@
 ### ENTREGA1-QUIPILDOR CRISTIAN.
 
-*La base de datos se encuentra vacia, rellenar con un usuario para realizar pruebas. *
+La base de datos se encuentra vacia, rellenar con un usuario o usar admin para realizar pruebas.
 
-*Usuario administrador:  admin  *
+Usuario administrador:  admin
 
-*Password: lilo7259    *
+Password: lilo7259    
 
 >Requerimientos antes de iniciar :
 >>instalar:
@@ -23,11 +23,20 @@
 >>##### Visualización de los posts creados.
 >
 >>*/posts/*
->>##### Listado y Busqueda de posts dentro de la BD.
+>>##### Listado y Busqueda de posts dentro de la BD, se activa la edicion solo si se inició sesión
 >
->>*/crear_post/*
->>##### Contiene formulario para la creación de posts.
+>>*/post/crear/*
+>>##### Contiene formulario para la creación de posts. (solo visible logueado)
 >>##### Una vez creados, devuelve a "/ver_posts/"
+>
+>>*/iniciar_sesion/*
+>>##### pantalla de login, al iniciar sesión se activa "crear post".
+>
+>>*/cerrar_sesion/*
+>>##### cierra la sesión si se está logueado.
+>
+>>*/registrar/*
+>>##### seccion para crear cuentas de usuario, redirige a Index.
 >
 >>*/acerca_de/*
 >>##### Informacion acerca del Alumno.
