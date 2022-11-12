@@ -11,7 +11,7 @@ class Camaron(models.Model):
     ph = models.CharField(max_length=30)
     fecha_creacion = models.DateField(null=True,auto_now_add=True)
     contenido = RichTextField(null=True)
-    imagen = models.ImageField(upload_to='imagenes/',null=True, blank=True)
+    imagen = models.ImageField(upload_to='imagenes/',null=True, blank=False)
     autor = models.ForeignKey(User(), on_delete=models.CASCADE, null=True)
 
     def __str__(self):
