@@ -22,7 +22,7 @@ class EditarPerfilFormulario(forms.Form):
     avatar = forms.ImageField(required=False)
 
 class CambiarPassword(PasswordChangeForm):
-    oldpassword = forms.CharField(label='Contraseña actual', widget=forms.PasswordInput)
+    old_password = forms.CharField(label='Contraseña actual', widget=forms.PasswordInput)
     new_password1 = forms.CharField(label='Contraseña nueva', widget=forms.PasswordInput)
     new_password2 = forms.CharField(label='Repetir Contraseña nueva', widget=forms.PasswordInput)
 
