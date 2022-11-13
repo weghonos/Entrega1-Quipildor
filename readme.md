@@ -1,6 +1,7 @@
 ### ENTREGA1-QUIPILDOR CRISTIAN.
 
-La base de datos se encuentra vacia, rellenar con un usuario o usar admin para realizar pruebas.
+La base de datos contiene 2 posts, y un usuario de test. 
+Usar admin para realizar pruebas.
 
 Usuario administrador:  admin
 
