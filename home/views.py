@@ -20,8 +20,8 @@ class VerPosts(ListView):
     template_name = 'home/buscar_posts.html'
 
     def get_queryset(self):
-        titulo = self.request.GET.get('especie', '')
-        if titulo:
+        especie = self.request.GET.get('especie', '')
+        if especie:
             object_list = self.model.objects.filter(especie__icontains=especie)
         else:
             object_list = self.model.objects.all()

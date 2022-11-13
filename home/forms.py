@@ -10,4 +10,4 @@ class PostFormulario(forms.Form):
     contenido= RichTextFormField(required=False)
 
 class BusquedaPost(forms.Form):
-    titulo = forms.CharField(max_length=30, required=False)
+    especie = forms.CharField(max_length=30, required=False)

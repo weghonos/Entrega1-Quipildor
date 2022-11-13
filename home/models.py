@@ -15,4 +15,4 @@ class Camaron(models.Model):
     autor = models.ForeignKey(User(), on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return f'Especie: {self.especie} - Subtitulo: {self.variedad} - Autor: {self.autor}'
+        return f'Especie: {self.especie} - Variedad: {self.variedad} - Autor: {self.autor}'
